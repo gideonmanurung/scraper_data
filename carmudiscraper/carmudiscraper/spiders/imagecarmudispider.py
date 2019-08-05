@@ -3,6 +3,7 @@ import scrapy
 import pandas as pd
 import os
 import re
+from scrapy.item import CarmudiscraperItem
 
 class ImagecarmudispiderSpider(scrapy.Spider):
     name = 'imagecarmudispider'
