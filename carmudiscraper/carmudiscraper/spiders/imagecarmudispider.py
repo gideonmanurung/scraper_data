@@ -15,7 +15,7 @@ class ImagecarmudispiderSpider(scrapy.Spider):
             start_urls.append('https://www.carmudi.co.id'+str(list_temp[j]))
 
     def parse(self, response):
-        LIST_IMAGE = '//*[@id="main-content-container"]/div[1]/div[1]/div[1]/div[2]/div[6]'
+        LIST_IMAGE = '//*[@id="main-content-container"]/div[1]/div[1]/div[1]/div[3]/div[2]'
         #print(response.xpath(LIST_IMAGE).extract())
         res = response.xpath(LIST_IMAGE).extract()
         res_new = res[0].split('</div>')
