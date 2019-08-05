@@ -23,4 +23,4 @@ class ImagecarmudispiderSpider(scrapy.Spider):
             m = re.search('//(.+?).jpg',item)
             if m:
                 found = m.group(1)
-            print(found)
+                yield CarmudiscraperItem(file_urls=str(found)+".jpg")
