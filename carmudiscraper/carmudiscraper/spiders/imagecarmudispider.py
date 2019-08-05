@@ -16,12 +16,23 @@ class ImagecarmudispiderSpider(scrapy.Spider):
             start_urls.append('https://www.carmudi.co.id'+str(list_temp[j]))
 
     def parse(self, response):
-        LIST_IMAGE = '//*[@id="main-content-container"]/div[1]/div[1]/div[1]/div[2]/div[6]'
-        #print(response.xpath(LIST_IMAGE).extract())
-        res = response.xpath(LIST_IMAGE).extract()
-        res_new = res[0].split('</div>')
-        for item in res_new:
-            m = re.search('//(.+?).jpg',item)
-            if m:
-                found = m.group(1)
-                yield CarmudiscraperItem(file_urls=str(found)+".jpg")
+        try:
+            LIST_IMAGE = '//*[@id="main-content-container"]/div[1]/div[1]/div[1]/div[2]/div[6]'
+            #print(response.xpath(LIST_IMAGE).extract())
+            res = response.xpath(LIST_IMAGE).extract()
+            res_new = res[0].split('</div>')
+            for item in res_new:
+                m = re.search('//(.+?).jpg',item)
+                if m:
+                    found = m.group(1)
+                    yield CarmudiscraperItem(file_urls=str(found)+".jpg")
+        except:
+            LIST_IMAGE = '//*[@id="main-content-container"]/div[1]/div[1]/div[1]/div[2]/div[5]'
+            #print(response.xpath(LIST_IMAGE).extract())
+            res = response.xpath(LIST_IMAGE).extract()
+            res_new = res[0].split('</div>')
+            for item in res_new:
+                m = re.search('//(.+?).jpg',item)
+                if m:
+                    found = m.group(1)
+                    yield CarmudiscraperItem(file_urls=str(found)+".jpg")
