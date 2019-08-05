@@ -3,6 +3,8 @@ import scrapy
 import pandas as pd
 import os
 import re
+from skimage import io
+import cv2
 
 class ImagecarmudispiderSpider(scrapy.Spider):
     name = 'imagecarmudispider'
@@ -23,5 +25,6 @@ class ImagecarmudispiderSpider(scrapy.Spider):
             m = re.search('//(.+?).jpg',item)
             if m:
                 found = m.group(1)
-                yield {'image_urls': [str(found)+".jpg"]}
-                print(found)
+                image = io.imread(str(found)+".jpg")
+                cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+                cv2.imwrite(str(found)+".jpg",image)
