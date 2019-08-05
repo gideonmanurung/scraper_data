@@ -25,6 +25,11 @@ FEED_URI = "list_car.csv"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+ITEM_PIPELINES = {
+    'scrapy.pipelines.images.ImagesPipeline': 1,
+}
+IMAGES_STORE = "/home/user/Desktop/imagespider/output"
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
