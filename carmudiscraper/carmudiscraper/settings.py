@@ -25,12 +25,6 @@ FEED_URI = "list_car.csv"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-ITEM_PIPELINES = {
-   'scrapy.contrib.pipeline.images.FilesPipeline': 1,
-}
-
-FILES_STORE = "/home/gideonmanurung/scraper_data/carmudiscraper/carmudiscraper/spider/output"
-
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

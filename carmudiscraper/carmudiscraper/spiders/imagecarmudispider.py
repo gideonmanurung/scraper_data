@@ -1,10 +1,7 @@
-# -*- coding: utf-8 -*-
 import scrapy
 import pandas as pd
 import os
 import re
-from skimage import io
-import cv2
 
 class ImagecarmudispiderSpider(scrapy.Spider):
     name = 'imagecarmudispider'
@@ -17,18 +14,12 @@ class ImagecarmudispiderSpider(scrapy.Spider):
             start_urls.append('https://www.carmudi.co.id'+str(list_temp[j]))
 
     def parse(self, response):
-        LIST_IMAGE = '//*[@id="main-content-container"]/div[1]/div[1]/div[1]/div[3]/div[2]'
+        LIST_IMAGE = '//*[@id="main-content-container"]/div[1]/div[1]/div[1]/div[2]/div[6]'
         #print(response.xpath(LIST_IMAGE).extract())
         res = response.xpath(LIST_IMAGE).extract()
         res_new = res[0].split('</div>')
         for item in res_new:
             m = re.search('//(.+?).jpg',item)
             if m:
-                """
-                print(m)
                 found = m.group(1)
-                image = io.imread(str(found)+".jpg")
-                cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-                cv2.imwrite(str(found)+".jpg",image)
-                """
-                yield CarmudiscraperItem(file_urls=[m])
+            print(found)
