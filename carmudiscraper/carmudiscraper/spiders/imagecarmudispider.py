@@ -24,6 +24,7 @@ class ImagecarmudispiderSpider(scrapy.Spider):
         for item in res_new:
             m = re.search('//(.+?).jpg',item)
             if m:
+                print(m)
                 found = m.group(1)
                 image = io.imread(str(found)+".jpg")
                 cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
