@@ -19,8 +19,8 @@ NEWSPIDER_MODULE = 'carmudiscraper.spiders'
 #USER_AGENT = 'carmudiscraper (+http://www.yourdomain.com)'
 
 #Export as CSV Feed
-FEED_FORMAT = "csv"
-FEED_URI = "list_car.csv"
+#FEED_FORMAT = "csv"
+#FEED_URI = "list_car.csv"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
