@@ -19,5 +19,4 @@ class CarmudispiderSpider(scrapy.Spider):
         """
         with open('people.csv', 'w') as writeFile:
             writer = csv.writer(writeFile)
-            for car_path in response.xpath(LIST_SELECTOR).extract():
-                writer.writerows(car_path)
+            writer.writerows(response.xpath(LIST_SELECTOR).extract())
