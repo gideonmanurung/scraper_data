@@ -13,7 +13,7 @@ class ImagecarmudispiderSpider(scrapy.Spider):
     for i in range(0,len(list_car)):
         list_temp = list_car["list_car"][i].split(",")
         for j in range(0,len(list_temp)):
-            start_urls.append('https://www.carmudi.co.id'+str(list_temp[j]))
+            start_urls.append('http://www.carmudi.co.id'+str(list_temp[j]))
 
     def parse(self, response):
         try:
@@ -35,4 +35,5 @@ class ImagecarmudispiderSpider(scrapy.Spider):
                 m = re.search('//(.+?).jpg',item)
                 if m:
                     found = m.group(1)
-                    yield CarmudiscraperItem(file_urls=str(found)+".jpg")
+                    print(found)
+                    yield CarmudiscraperItem(image_urls=str(found)+".jpg")

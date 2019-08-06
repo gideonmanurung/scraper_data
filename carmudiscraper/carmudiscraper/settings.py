@@ -25,11 +25,9 @@ NEWSPIDER_MODULE = 'carmudiscraper.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-ITEM_PIPELINES = {
-'scrapy.pipelines.images.ImagesPipeline':1
-}
+ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
 
-IMAGES_STORE = '/home/gideon_dirgahayu/scraper_data/carmudiscraper/carmudiscraper/spiders/images'
+IMAGES_STORE = 'C:/Users/gideonmanurung/Documents/Work/Private/scraper_data/carmudiscraper/carmudiscraper/spiders/images'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
