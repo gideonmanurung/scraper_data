@@ -32,7 +32,7 @@ class ImagecarmudispiderSpider(scrapy.Spider):
             #print(response.xpath(LIST_IMAGE).extract())
             res = response.xpath(LIST_IMAGE).extract()
             #res_new = res[0].split('</div>')
-            for item in res_new:
+            for item in res:
                 m = re.search('//(.+?).jpg',item)
                 if m:
                     found = m.group(1)
